@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+https://transform.tools/html-to-jsx -> html to jsx icin guzel UI'li converter		
+
+npx tailwindcss-cli build src/index.css -o tailwind_decompiled/tailwind.css ile tailwind'in base,	components ve utilities layer'larinin hangi stilleri yukledigi gorulebilir. 
+
+Base layer'i reset layeridir	box-sizing, element stilleri(font-size,height,color vs.) ve cross browser stabilizasyonunu belirler.		
+
+components layer'i responsive olarak duzenlenen .container class'i gibi class-based style'lari iceren	bir layer'dir.		
+
+utilities layer'i diger tum stillerden oncelikli olacak pt-1, mt-1, shadow, grid-col gibi kucuk, tek amacli class'lari iceren bir layer'dir. Bu nedenle en asagida konumlandirilmalidir.		
+
+react'ta js, jsx icinde tailwind css intellisense kurulu olmasina ragmen snippet calismiyorsa;		
+https://stackoverflow.com/questions/63190041/tailwind-css-intellisense-does-not-provide-suggestions-in-a-reactjs-project#69647087		
+
+bir parent'taki tum child'lara ayni margini uygulamak icin child'lara class vermek yerine parent'a space-y-6 gibi bir class verildiginde ilk child haric tum child'larda mt-6 class'i verilmis olur.		
+*/
+
+@layer base {
+  body {
+    @apply min-h-screen font-firaCode text-black dark:bg-slate-500 dark:text-white;
+  }
+
+  input,
+  textarea {
+    @apply ring-0 !important;
+  }
+
+  input {
+    @apply hover:dark:outline-white hover:outline-yellow-500 !important;
+  }
+}
+
+@layer components {
+  .btn-success {
+    @apply focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 w-full mt-[15px] dark:bg-cyan-600 dark:hover:bg-green-700 dark:focus:ring-green-900;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Fira Code", monospace;
+}
