@@ -4,3 +4,5 @@
 *.tsx linguist-language=TypeScript
 *.scss linguist-language=Sass
 *.sass linguist-language=Sass
+
+./presentation/stock_app_apiclient-presentation.gif filter=lfs diff=lfs merge=lfs -text
